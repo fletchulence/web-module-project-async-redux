@@ -16,7 +16,7 @@ export function beersReducer (state = initialState, action) {
       case FETCH_START:
          return ({
             ...state.beers,
-            beers:  action.payload,
+            beers: action.payload,
             isFetching: true,
             error:'fetch-start'
          });
