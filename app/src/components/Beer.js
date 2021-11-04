@@ -3,21 +3,21 @@ import { connect } from 'react-redux';
 
 import { getBeer } from '../actions/beerAction'
 
-function Beer(props) {
-   console.log(props.beer)
+function Beer({beers, getBeer}) {
+   
 
    const handleClick=(id)=>{
-      props.getBeer(id)
+      getBeer(id)
    }
 
    return (
       <div>
          would you like a beer?
-         <button onClick={handleClick}> yes please </button>
-         {props.beer.beer &&
-         props.beer.map((beers, index)=>(
+         <button onClick={()=>handleClick()}> yes please </button>
+         {beers &&
+         beers.map((beer, index)=>(
             <h2 key={index}>
-               {beers.name}
+               {beer.name}
             </h2>
          ))
          }
