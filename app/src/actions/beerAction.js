@@ -5,7 +5,7 @@ export const getBeer = () =>{
       dispatch(fetchStart());
       axios.get('https://api.punkapi.com/v2/beers')
          .then(res=>{
-            // console.log(res.data)
+            console.log(res.data)
             dispatch(fetchBeer(res.data))
          })
          .catch(err=>{

@@ -2,15 +2,15 @@ import { FETCH_START, FETCH_ERR, FETCH_BEER } from '../actions/beerAction';
 
 const initialState={
    beers: {
-      name:'',
+      name:'this is my beer',
       // ingredients: {},
       // food_pairing:[],
       // contributed_by:''
    },
-   error: '',
+   error: 'fuck this',
 }
 
-export function beerReducer (state = initialState, action) {
+export function beersReducer (state = initialState, action) {
    switch (action.type){
       case FETCH_START:
          return {

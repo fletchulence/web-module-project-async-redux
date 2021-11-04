@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getBeer } from '../actions/beerAction'
 
 function Beer({beers, getBeer}) {
-   
+   console.log(beers)
 
    const handleClick=(id)=>{
       getBeer(id)
@@ -13,7 +13,7 @@ function Beer({beers, getBeer}) {
    return (
       <div>
          would you like a beer?
-         <button onClick={()=>handleClick()}> yes please </button>
+         <button onClick={handleClick}> yes please </button>
          {beers &&
          beers.map((beer, index)=>(
             <h2 key={index}>
