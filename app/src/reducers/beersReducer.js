@@ -5,31 +5,35 @@ const initialState={
       name:'this is my beer',
       // ingredients: {},
       // food_pairing:[],
-      // contributed_by:''
+      contributed_by:''
    },
+   isFetching: false,
    error: 'fuck this',
 }
 
 export function beersReducer (state = initialState, action) {
    switch (action.type){
       case FETCH_START:
-         return {
-            ...state,
-            beers: action.payload,
-            error:''
-         };
+         return ({
+            ...state.beers,
+            beers:  action.payload,
+            isFetching: true,
+            error:'fetch-start'
+         });
       case FETCH_BEER:
-         return {
+         return ({
             ...state,
             beers: [...state.beers, action.payload],
-            error: ''
-         };
+            isFetching:false,
+            error: 'fetch-beer'
+         });
       case FETCH_ERR:
-         return{
+         return({
             ...state,
             beers: {},
+            isFetching: false,
             error: action.payload
-         }
+         })
       default:
          return state;
    }

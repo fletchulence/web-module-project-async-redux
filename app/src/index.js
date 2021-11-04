@@ -14,7 +14,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const store = createStore(rootReducer, applyMiddleware(logger, thunk))
 
 ReactDOM.render(
   <React.StrictMode>

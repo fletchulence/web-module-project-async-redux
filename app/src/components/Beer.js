@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { getBeer } from '../actions/beerAction'
 
-function Beer({beers, getBeer}) {
-   console.log(beers)
+const Beer = ({beers, getBeer}) => {
 
-   const handleClick=(id)=>{
-      getBeer(id)
+   // useEffect(()=>{
+   //    getBeer(beers);
+   // }, []);
+
+   const handleClick=(beers)=>{
+      getBeer(beers)
    }
 
    return (
       <div>
+         <h1>empty</h1>
          would you like a beer?
          <button onClick={handleClick}> yes please </button>
          {beers &&
@@ -27,7 +31,8 @@ function Beer({beers, getBeer}) {
 
 const mapStateToProps = (state) =>{
    return{
-      beer: state.beer,
+      beers: state.beerReducer,
+      isFetching: state.isFetching,
       error: state.error
    }
 }

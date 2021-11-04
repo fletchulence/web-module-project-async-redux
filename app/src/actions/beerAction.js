@@ -22,8 +22,8 @@ export const fetchStart = (start) => ({
 
 export const FETCH_BEER = 'FETCH_BEER';
 
-export const fetchBeer = (beer) =>({
-   type: FETCH_BEER, payload:beer
+export const fetchBeer = (beers) =>({
+   type: FETCH_BEER, payload:beers
 })
 
 export const FETCH_ERR = 'FETCH_ERR';
