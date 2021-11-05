@@ -2,10 +2,9 @@ import { FETCH_START, FETCH_ERR, FETCH_BEER } from '../actions/beerAction';
 
 const initialState={
    beers: {
-      name:'this is my beer',
-      // ingredients: {},
-      // food_pairing:[],
-      contributed_by:''
+      id: '',
+      name: 'David',
+
    },
    isFetching: false,
    error: 'fuck this',
@@ -30,7 +29,7 @@ export function beersReducer (state = initialState, action) {
       case FETCH_ERR:
          return({
             ...state,
-            beers: {},
+            beers: [],
             isFetching: false,
             error: action.payload
          })

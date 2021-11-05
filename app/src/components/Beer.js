@@ -3,14 +3,18 @@ import { connect } from 'react-redux';
 
 import { getBeer } from '../actions/beerAction'
 
-const Beer = ({beers, getBeer}) => {
+const Beer = (props) => {
 
-   // useEffect(()=>{
-   //    getBeer(beers);
-   // }, []);
+   console.log(props.beers)
+   console.log(props.isFetching)
 
-   const handleClick=(beers)=>{
-      getBeer(beers)
+   //  useEffect((e)=>{
+   //     getBeer(e);
+   //  }, []);
+    
+
+   const handleClick=()=>{
+      props.dispatch(getBeer())
    }
 
    return (
@@ -18,8 +22,8 @@ const Beer = ({beers, getBeer}) => {
          <h1>empty</h1>
          would you like a beer?
          <button onClick={handleClick}> yes please </button>
-         {beers &&
-         beers.map((beer, index)=>(
+         {props.beers &&
+         props.beers.map((beer, index)=>(
             <h2 key={index}>
                {beer.name}
             </h2>
@@ -30,11 +34,11 @@ const Beer = ({beers, getBeer}) => {
 }
 
 const mapStateToProps = (state) =>{
-   return{
-      beers: state.beerReducer,
+   return({
+      beers: state.beers,
       isFetching: state.isFetching,
       error: state.error
-   }
+   })
 }
 
 export default connect(mapStateToProps, { getBeer })(Beer)
