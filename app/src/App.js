@@ -1,15 +1,24 @@
 // import React, {}
-
+import React, { useEffect } from 'react';
 import './App.css';
-import Beer from './components/Beer';
+import Beers from './components/Beers';
 
-function App() {
+import { connect } from 'react-redux';
+import { getBeers } from './actions/beerAction'
+
+function App(props) {
+  console.log(props)
+
+  useEffect(()=>{
+        props.getBeers();
+     }, [props]);
+ 
   return (
     <div className="App">
       Hello World
-      <Beer />
+      <Beers />
     </div>
   );
 }
 
-export default  App;
+export default connect(null, { getBeers } )(App);

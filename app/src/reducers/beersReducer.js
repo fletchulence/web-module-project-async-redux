@@ -1,40 +1,41 @@
-import { FETCH_START, FETCH_ERR, FETCH_BEER } from '../actions/beerAction';
+import { FETCH_START, FETCH_SUCCESS, FETCH_ERR } from '../actions/beerAction';
 
-const initialState={
-   beers: {
-      id: '',
-      name: 'David',
-
-   },
+export const initialState={
+   beers: [],
    isFetching: false,
-   error: 'fuck this',
+   error: '',
 }
 
-export function beersReducer (state = initialState, action) {
-   switch (action.type){
+const beersReducer = (state = initialState, action) =>{
+   switch(action.type) {
       case FETCH_START:
-         return ({
-            ...state.beers,
-            beers: action.payload,
-            isFetching: true,
-            error:'fetch-start'
-         });
-      case FETCH_BEER:
-         return ({
-            ...state,
-            beers: [...state.beers, action.payload],
-            isFetching:false,
-            error: 'fetch-beer'
-         });
-      case FETCH_ERR:
-         return({
+         console.log('MY FETCH START IS HAPPENING')
+         return {
             ...state,
             beers: [],
+            isFetching: true,
+            error:''
+         };
+      case FETCH_SUCCESS:
+         console.log(...state.beers)
+         return ({
+            ...state,
+            beers: action.payload,
+            isFetching:false,
+            error: ''
+         });
+      case FETCH_ERR:
+         console.log("my error is happening")
+         return({
+            ...state,
+            beers: '',
             isFetching: false,
             error: action.payload
          })
       default:
          return state;
-   }
-}
+   };
+};
+
+export default beersReducer;
 
