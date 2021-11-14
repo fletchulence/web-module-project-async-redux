@@ -20,6 +20,13 @@ const Beers = (props) => {
                   <Beer oneBeer={beer}/>
                )
             })}
+            <form onSubmit={onSubmit}>
+               <label>
+                  <input
+                     type='text'
+                  />
+               </label>
+            </form>
          
          <button onClick={handleClick}> yes please </button>
       </div>
