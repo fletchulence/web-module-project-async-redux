@@ -6,6 +6,10 @@ import Beer from './Beer';
 
 const Beers = (props) => {
 
+   useEffect(()=>{
+         //use this to make the beers render on MOUNT
+   }, [])
+
    console.log('THESE ARE BEER"S PROPS', props)
 
    const handleClick=()=>{
@@ -13,14 +17,23 @@ const Beers = (props) => {
       // props.fetchBeer(newBeer())
    }
 
+   // Submit form for the find to meet the 
+   const handleSubmit =()=>{
+
+   }
+
    return (
       <div>
+         {/* 
+         i think this should be taking the right props though... 
+         honestly not sure anymore
+          */}
             {props.beers.map((beer)=>{
                return (
                   <Beer oneBeer={beer}/>
                )
             })}
-            <form onSubmit={onSubmit}>
+            <form onSubmit={handleSubmit}>
                <label>
                   <input
                      type='text'
