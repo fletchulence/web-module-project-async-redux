@@ -27,13 +27,10 @@ function App(props) {
   return (
     <div className="App">
       Hello World
-          <FoodPairs />
       <button onClick={handleClick}> Beers! </button>
       <Routes>
-        <Route path='/beers'>
-          <Beers /* beers={beers} *//>
-        </Route>
-        <Route path='/foodpairs'>
+        <Route path='beers' element={<Beers/>}>
+          <Route path='foodpairs/:id' element={<FoodPairs/>}/>
         </Route>
       </Routes>
     </div>

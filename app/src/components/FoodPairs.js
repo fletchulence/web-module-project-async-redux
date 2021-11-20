@@ -1,11 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
+import { getFood } from '../actions/foodAction'
 
 export const FoodPairs = (props) => {
    console.log(props)
+
+   useEffect(()=>{
+      props.getFood()
+   },[])
+
+
    return (
       <div>
-         {/* {props.beers[0].boil_volume.unit} */}
+we are in foooood
       </div>
    )
 }
@@ -18,7 +25,7 @@ const mapStateToProps = (state) =>{
    })
 }
 
-export default connect(mapStateToProps, null)(FoodPairs)
+export default connect(mapStateToProps, {getFood})(FoodPairs)
 
 
 // const mapStateToProps = (state) => ({

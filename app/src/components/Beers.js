@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Beer from './Beer';
+import { Outlet } from 'react-router-dom';
 
 // import { fetchBeer } from '../actions/beerAction'
 
@@ -21,7 +22,7 @@ const Beers = (props) => {
    const handleSubmit =()=>{
 
    }
-
+   
    return (
       <div>
          {/* 
@@ -30,7 +31,9 @@ const Beers = (props) => {
           */}
             {props.beers.map((beer)=>{
                return (
-                  <Beer key={beer.id} oneBeer={beer}/>
+                  <React.Fragment>
+                     <Beer key={beer.id} oneBeer={beer}/>
+                  </React.Fragment>
                )
             })}
             <form onSubmit={handleSubmit}>
@@ -42,15 +45,16 @@ const Beers = (props) => {
             </form>
          
          <button onClick={handleClick}> yes please </button>
+         <Outlet/>
       </div>
    )
 }
 
 const mapStateToProps = (state) =>{
    return({
-      beers: state.beers,
-      isFetching: state.isFetching,
-      error: state.error
+      beers: state.beersReducer.beers,
+      isFetching: state.beersReducer.isFetching,
+      error: state.beersReducer.error
    })
 }
 
