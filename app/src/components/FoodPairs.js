@@ -4,10 +4,11 @@ import { getFood } from '../actions/foodAction'
 
 export const FoodPairs = (props) => {
    console.log(props)
+   const {getFood} = props
 
    useEffect(()=>{
-      props.getFood()
-   },[])
+      getFood()
+   }, [getFood])
 
 
    return (

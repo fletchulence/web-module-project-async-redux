@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 //redux appropriate imports
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import reducer from './reducers';
@@ -14,7 +14,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-const store = createStore(reducer, applyMiddleware(logger, thunk))
+const store = createStore(reducer, applyMiddleware(/* logger, */ thunk))
 
 ReactDOM.render(
   <React.StrictMode>
