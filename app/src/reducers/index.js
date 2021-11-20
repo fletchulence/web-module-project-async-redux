@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 // import { doggoReducer } from './doggosReducer'
 import { beersReducer } from './beersReducer';
+import { foodReducer } from './foodReducer'
 
-const rootReducer = combineReducers({
-//   doggoReducer:doggoReducer,
+export default combineReducers({
   beersReducer,
+  foodReducer,
 });
 
-export default rootReducer;

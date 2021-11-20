@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Beer(props) {
+   console.log(props)
    const  { oneBeer } = props;
    return (
       <div>

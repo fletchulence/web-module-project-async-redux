@@ -8,3 +8,8 @@
 //       })
 // }
 // this is going to end up being the way i modularize it thhe most
+
+/* export const getFoods=()=>{
+      
+}
+} */

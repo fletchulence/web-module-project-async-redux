@@ -1,16 +1,16 @@
 import axios from 'axios';
 
-export const getBeers = () =>{
+export const getFood = () =>{
    return(dispatch)=>{
       dispatch(fetchStart());
       axios.get('https://api.punkapi.com/v2/beers')
          .then(res=>{
-            dispatch(fetchBeer(res.data))
+            dispatch(fetchFood(res.data.map((i, index) => (i.food_pairing(index)))))
             // dispatch(fetchFood(res.data.forEach(getFoods.map((e)=> e))))
          })
          .catch(err=>{
             dispatch(fetchError(err))
-            console.log('BEER ERROR CASE SHOULD CALL')
+            console.log('FOOD ERROR CASE SHOULD CALL')
          })
    }
 };
@@ -20,9 +20,9 @@ export function fetchStart() {
    return ({type: FETCH_START})
 };
 
-export const FETCH_BEER = 'FETCH_BEER';
-export function fetchBeer(beers) {
-   return ({type: FETCH_BEER, payload: beers})
+export const FETCH_FOOD = 'FETCH_FOOD';
+export function fetchFood(food) {
+   return ({type: FETCH_FOOD, payload: food})
 }
 
 export const FETCH_ERR = 'FETCH_ERR';

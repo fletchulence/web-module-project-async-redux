@@ -1,26 +1,26 @@
-import { FETCH_START, FETCH_BEER, FETCH_ERR } from '../actions/beerAction';
+import { FETCH_START, FETCH_FOOD, FETCH_ERR } from '../actions/foodAction';
 
 export const initialState={
-   beers: [],
+   food: [],
    isFetching: false,
    error: '',
 }
 
-export const beersReducer = (state = initialState, action) =>{
+export const foodReducer = (state = initialState, action) =>{
    switch(action.type) {
       case FETCH_START:
          console.log('MY FETCH START IS HAPPENING')
          return {
             ...state,
-            beers: [],
+            food: [],
             isFetching: true,
             error:''
          };
-      case FETCH_BEER:
-         console.log(...state.beers)
+      case FETCH_FOOD:
+         console.log(...state.food)
          return ({
             ...state,
-            beers: action.payload,
+            food: action.payload,
             isFetching:false,
             error: ''
          });
@@ -28,7 +28,7 @@ export const beersReducer = (state = initialState, action) =>{
          console.log("my error is happening")
          return({
             ...state,
-            beers: '',
+            food: '',
             isFetching: false,
             error: action.payload.message
          })
@@ -36,4 +36,5 @@ export const beersReducer = (state = initialState, action) =>{
          return state;
    };
 };
+
 

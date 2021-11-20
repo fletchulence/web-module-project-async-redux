@@ -30,7 +30,7 @@ const Beers = (props) => {
           */}
             {props.beers.map((beer)=>{
                return (
-                  <Beer oneBeer={beer}/>
+                  <Beer key={beer.id} oneBeer={beer}/>
                )
             })}
             <form onSubmit={handleSubmit}>
