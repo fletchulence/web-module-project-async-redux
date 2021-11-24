@@ -1,21 +1,20 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function Beer(props) {
+function Beer({ oneBeer }) {
    const navigate = useNavigate()
-   console.log(props)
+   // console.log(props)
 
    const openFoods=()=>{
       navigate(`foodpairs/${oneBeer.id}`)
       }
 
-   const  { oneBeer } = props;
    return (
       <div>
          <p>{oneBeer.name}</p>
          <p>{oneBeer.id}</p>
          <p>{oneBeer.tagline}</p>
-<button onClick={openFoods}></button>
+         <button onClick={openFoods}>see food pairing</button>
       </div>
    )
 }

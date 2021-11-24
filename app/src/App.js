@@ -1,24 +1,25 @@
 // import React, {}
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import Beers from './components/Beers';
 import FoodPairs from './components/FoodPairs';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import Header from './components/Header';
 
 import { Route, Routes } from 'react-router-dom';
 
-import { connect } from 'react-redux';
-import { getBeers } from './actions/beerAction';
+// import { connect } from 'react-redux';
+// import { getBeers } from './actions/beerAction';
 
 function App(props) {
   const navigate = useNavigate()
-  console.log(props)
+  // console.log(props)
 
   
   
-  useEffect(()=>{
-    props.getBeers();
-  }, [props]);
+  // useEffect(()=>{
+  //   props.getBeers();
+  // }, [props]);
   
   const handleClick =()=>{
       navigate('/beers')
@@ -26,6 +27,7 @@ function App(props) {
  
   return (
     <div className="App">
+      <Header/>
       Hello World
       <button onClick={handleClick}> Beers! </button>
       <Routes>
@@ -37,4 +39,4 @@ function App(props) {
   );
 }
 
-export default connect(null, { getBeers } )(App);
+export default App;

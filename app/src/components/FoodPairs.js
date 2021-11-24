@@ -2,9 +2,7 @@ import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
 import { getFood } from '../actions/foodAction'
 
-export const FoodPairs = (props) => {
-   console.log(props)
-   const {getFood} = props
+export const FoodPairs = ({ getFood, food, isFetching, error }) => {
 
    useEffect(()=>{
       getFood()
@@ -13,7 +11,11 @@ export const FoodPairs = (props) => {
 
    return (
       <div>
-we are in foooood
+         {food.map(() => {
+            return <div> {this.food} </div>
+         }
+            )}
+{`we are in foooood ${food}`}
       </div>
    )
 }
