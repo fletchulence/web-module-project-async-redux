@@ -1,12 +1,13 @@
 // import React, {}
 import React from 'react';
 import './App.css';
-import Beers from './components/Beers';
-import FoodPairs from './components/FoodPairs';
 import { useNavigate } from 'react-router-dom';
-import Header from './components/Header';
 
 import { Route, Routes } from 'react-router-dom';
+
+import Header from './components/Header';
+import Beers from './components/Beers';
+import FoodPairs from './components/FoodPairs';
 
 // import { connect } from 'react-redux';
 // import { getBeers } from './actions/beerAction';
@@ -32,7 +33,7 @@ function App(props) {
       <button onClick={handleClick}> Beers! </button>
       <Routes>
         <Route path='beers' element={<Beers/>}>
-          <Route path='foodpairs/:id' element={<FoodPairs/>}/>
+          <Route path=':id/foodpairs' element={<FoodPairs/>}/>
         </Route>
       </Routes>
     </div>

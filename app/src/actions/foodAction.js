@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export const getFood = () =>{
+export const getFood = (beer) =>{
    return(dispatch)=>{
       dispatch(fetchStart());
       axios.get('https://api.punkapi.com/v2/beers')
          .then(res=>{
-            dispatch(fetchFood(res.data.map((i) => (i.food_pairing))))
+            dispatch(fetchFood(res.data.map((beer) => (beer.food_pairing))))
             // dispatch(fetchFood(res.data.forEach(getFoods.map((e)=> e))))
          })
          .catch(err=>{
