@@ -8,7 +8,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { connect } from 'react-redux';
 import { getBeers } from './../actions/beerAction';
 
-import Beer from './Beer';
+// import Beer from './Beer';
 
 
 const Beers = ({ getBeers, beers, isFetching, error }) => {
